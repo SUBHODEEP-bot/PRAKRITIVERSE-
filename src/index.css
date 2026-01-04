@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PrakritiVerse Design System - Professional Sustainability Platform */
+
+@layer base {
+  :root {
+    /* Nature-inspired professional color palette */
+    --background: 120 20% 98%;
+    --foreground: 140 30% 8%;
+
+    --card: 120 25% 99%;
+    --card-foreground: 140 25% 12%;
+
+    --popover: 120 25% 99%;
+    --popover-foreground: 140 25% 12%;
+
+    /* Primary: Deep Forest Green */
+    --primary: 140 60% 20%;
+    --primary-foreground: 120 20% 98%;
+    --primary-glow: 140 50% 35%;
+
+    /* Secondary: Ocean Blue */
+    --secondary: 200 80% 25%;
+    --secondary-foreground: 120 20% 98%;
+
+    /* Muted: Sage Green */
+    --muted: 120 15% 92%;
+    --muted-foreground: 140 20% 45%;
+
+    /* Accent: Earth Brown */
+    --accent: 30 40% 30%;
+    --accent-foreground: 120 20% 98%;
+
+    /* Success: Vibrant Green */
+    --success: 140 70% 35%;
+    --success-foreground: 120 20% 98%;
+
+    /* Warning: Warm Earth */
+    --warning: 40 90% 50%;
+    --warning-foreground: 140 30% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 120 20% 98%;
+
+    --border: 120 20% 88%;
+    --input: 120 20% 95%;
+    --ring: 140 60% 20%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-earth: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--warning)));
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--secondary)), hsl(200 70% 40%));
+    --gradient-forest: linear-gradient(135deg, hsl(var(--primary)), hsl(140 50% 30%));
+    --gradient-aurora: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
+
+    /* Shadows */
+    --shadow-eco: 0 10px 40px -10px hsl(var(--primary) / 0.2);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+    --shadow-glass: 0 8px 32px hsl(var(--foreground) / 0.1);
+
+    /* Animations */
+    --transition-eco: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s ease-in-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode with nature-inspired elegance */
+    --background: 140 25% 5%;
+    --foreground: 120 15% 95%;
+
+    --card: 140 20% 8%;
+    --card-foreground: 120 15% 92%;
+
+    --popover: 140 20% 8%;
+    --popover-foreground: 120 15% 92%;
+
+    --primary: 140 60% 45%;
+    --primary-foreground: 140 25% 5%;
+    --primary-glow: 140 55% 60%;
+
+    --secondary: 200 70% 40%;
+    --secondary-foreground: 140 25% 5%;
+
+    --muted: 140 15% 12%;
+    --muted-foreground: 140 15% 60%;
+
+    --accent: 30 50% 45%;
+    --accent-foreground: 140 25% 5%;
+
+    --success: 140 65% 50%;
+    --success-foreground: 140 25% 5%;
+
+    --warning: 40 85% 55%;
+    --warning-foreground: 140 25% 5%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 140 25% 5%;
+
+    --border: 140 15% 15%;
+    --input: 140 15% 12%;
+    --ring: 140 60% 45%;
+
+    --sidebar-background: 140 20% 8%;
+    --sidebar-foreground: 120 15% 90%;
+    --sidebar-primary: 140 60% 45%;
+    --sidebar-primary-foreground: 140 25% 5%;
+    --sidebar-accent: 140 15% 15%;
+    --sidebar-accent-foreground: 120 15% 85%;
+    --sidebar-border: 140 15% 15%;
+    --sidebar-ring: 140 60% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Eco-friendly animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-eco {
+    animation: pulse-eco 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-grow {
+    animation: grow 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-eco {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  @keyframes grow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  /* Robot animations */
+  @keyframes robot-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes robot-wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+  }
+
+  @keyframes robot-point {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(5px); }
+  }
+
+  @keyframes robot-nod {
+    0%, 100% { transform: rotateX(0deg); }
+    50% { transform: rotateX(10deg); }
+  }
+
+  /* Glass morphism effects */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
