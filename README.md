@@ -1,3 +1,6 @@
+## live link: https://prakritiverse-eco.netlify.app/
+
+## structure:
 ├───public
 ├───src
 │   ├───assets
