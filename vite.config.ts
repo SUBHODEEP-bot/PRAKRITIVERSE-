@@ -21,9 +21,23 @@ export default defineConfig(({ mode }) => ({
         name: 'PrakritiVerse',
         short_name: 'PrakritiVerse',
         description: 'Gamified environmental education platform',
+        start_url: '/',
+        scope: '/',
         theme_color: '#10b981',
         background_color: '#ffffff',
         display: 'standalone',
+        icons: [
+          {
+            src: '/placeholder.svg',
+            sizes: '192x192',
+            type: 'image/svg+xml'
+          },
+          {
+            src: '/placeholder.svg',
+            sizes: '512x512',
+            type: 'image/svg+xml'
+          }
+        ],
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff,woff2,ttf,eot}'],
