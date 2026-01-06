@@ -67,7 +67,8 @@ export const AIChat = ({ isOpen, onClose }: AIChatProps) => {
       const tempMessages = [...messages, userMessage];
       const payload = {
         message: userMessage.content,
-        context: `Previous messages: ${tempMessages.slice(-5).map(m => `${m.role}: ${m.content}`).join('\n')}`
+        context: `Previous messages: ${tempMessages.slice(-5).map(m => `${m.role}: ${m.content}`).join('\n')}`,
+        siteBaseUrl: window.location.origin
       };
 
       const { data, error } = await supabase.functions.invoke('ai-coach', {
