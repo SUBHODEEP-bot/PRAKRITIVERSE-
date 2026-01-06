@@ -64,17 +64,22 @@ export const AIChat = ({ isOpen, onClose }: AIChatProps) => {
     setIsLoading(true);
 
     try {
+      const tempMessages = [...messages, userMessage];
+      const payload = {
+        message: userMessage.content,
+        context: `Previous messages: ${tempMessages.slice(-5).map(m => `${m.role}: ${m.content}`).join('\n')}`
+      };
+
       const { data, error } = await supabase.functions.invoke('ai-coach', {
-        body: {
-          message: userMessage.content,
-          context: `Previous messages: ${messages.slice(-5).map(m => `${m.role}: ${m.content}`).join('\n')}`
-        },
+        body: JSON.stringify(payload),
         headers: {
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${session.access_token}`
         }
       });
 
       if (error) throw error;
+      if (!data || !data.response) throw new Error('No response from AI coach');
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -84,7 +89,7 @@ export const AIChat = ({ isOpen, onClose }: AIChatProps) => {
       };
 
       setMessages(prev => [...prev, assistantMessage]);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
         title: "Error",
